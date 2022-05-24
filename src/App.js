@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Main from "./components/main/Main";
+import React, { useEffect, useState } from "react";
+import { DataContext } from "./context/DataContext";
+import Header from "./components/header/Header";
+import { Loading } from "./components/loading/Loading";
 
 function App() {
+  const [roadster, setRoadster] = useState();
+  const [ships, setShips] = useState();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    Promise.all([
+      fetch("https://api.spacexdata.com/v3/roadster").then((value) =>
+        value.json()
+      ),
+      fetch("https://api.spacexdata.com/v3/ships").then((value) =>
+        value.json()
+      ),
+    ]).then((allResponses) => {
+      setRoadster(allResponses[0]);
+      setShips(allResponses[1]);
+      setLoading(false);
+    });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      {loading ? (
+        <Loading />
+      ) : (
+        <DataContext.Provider value={{ roadster, ships }}>
+          <Main />
+        </DataContext.Provider>
+      )}
     </div>
   );
 }

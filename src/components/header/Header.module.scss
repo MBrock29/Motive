@@ -1,0 +1,19 @@
+@import "../../styles/Colors.scss";
+@import "../../styles/Variables.scss";
+
+.container {
+  height: 200px;
+  text-align: center;
+  @media (max-width: $tablet) {
+    height: 40px;
+  }
+}
+
+.image {
+  height: 200px;
+  zoom: 2;
+  margin-top: -54px;
+  @media (max-width: $tablet) {
+    height: 50px;
+  }
+}

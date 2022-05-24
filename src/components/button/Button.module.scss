@@ -1,0 +1,13 @@
+@import "../../styles/Colors.scss";
+@import "../../styles/Variables.scss";
+
+.button {
+  background-color: $green;
+  height: 60px;
+  &:hover {
+    opacity: 0.6;
+  }
+  @media (max-width: $tablet) {
+    height: 40px;
+  }
+}

@@ -1,0 +1,52 @@
+@import "../../styles/Colors.scss";
+@import "../../styles/Variables.scss";
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding-top: $small;
+  width: 60%;
+  flex-direction: column;
+  background-color: $dark;
+  border-left: $x2 solid black;
+  height: calc(100vh - 216px);
+}
+
+.header {
+  text-align: center;
+  color: $white;
+}
+
+.inputContainer {
+  padding: $small;
+  margin: 0 auto;
+}
+input {
+  width: 300px;
+  padding: 10px;
+  border-radius: $nano;
+  border: 2px solid $dark;
+  text-align: center;
+}
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  overflow-y: scroll;
+  flex: 1;
+}
+.card {
+  min-width: 250px;
+  border-radius: 20px;
+  padding: $small;
+  margin: $small;
+  background-color: black;
+  color: $white;
+  text-align: center;
+  height: fit-content;
+  font-weight: 600;
+  span {
+    font-size: 18px;
+  }
+}

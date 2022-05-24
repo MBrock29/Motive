@@ -1,0 +1,40 @@
+@import "../../styles/Colors.scss";
+@import "../../styles/Variables.scss";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 40%;
+  align-items: center;
+  background-color: $dark;
+  height: calc(100vh - 200px);
+}
+
+.dataContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  padding: $small;
+  background-color: $dark;
+  color: $white;
+  text-align: center;
+  height: fit-content;
+  width: 80%;
+  font-weight: 600;
+  span {
+    font-size: 22px;
+  }
+  p {
+    font-size: 18px;
+    margin-bottom: $large;
+    background-color: $dark;
+  }
+}
+
+.header {
+  text-align: center;
+  color: $white;
+}
